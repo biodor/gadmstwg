@@ -1,0 +1,29 @@
+{% load static %}
+<ol class="breadcrumb">
+ <!--   <li class="breadcrumb-item">Home</li> -->
+    {% if user.is_authenticated and user.id == user.profile.privacy %}
+    <li class="breadcrumb-item"><a href="{% url 'update-profile' user.id %}">My Survey {{ user.is_authenticated }}{{ user.id }} {{ user.profile.id }}</a></li>
+    {% elif user.privacy.author != user.profile.user %}
+    <li class="breadcrumb-item"><a href="{% url 'survey-start' %}">Start Survey</a></li>
+    {% endif %}
+ <!--   <li class="breadcrumb-item active">Dashboard</li> -->
+
+    <!-- Breadcrumb Menu-->
+    <li class="breadcrumb-menu d-md-down-none">
+        <div class="btn-group" role="group" aria-label="Button group">
+            {% if user.is_authenticated and user.is_staff %}
+            <a class="btn" href="{% url 'post-upload-docs' %}"><i class="icon-speech"></i> &nbsp;Upload Docs</a>
+            <a class="btn" href="{% url 'post-bulletin' %}"><i class="icon-speech"></i> &nbsp;Bulletin</a>
+            <a class="btn" href="{% url 'dashboard' %}"><i class="icon-graph"></i> &nbsp;Dashboard</a>
+
+            {% else %}
+            <a class="btn" href="{% url 'post-bulletin' %}"><i class="icon-speech"></i> &nbsp;Bulletin</a>
+            <a class="btn" href="{% url 'dashboard' %}"><i class="icon-graph"></i> &nbsp;Dashboard</a>
+      <!--      <a class="btn" href="#"><i class="icon-settings"></i> &nbsp;Settings</a> -->
+            {% endif %}
+        </div>
+    </li>
+
+    {% block breadcrumb %}
+    {% endblock %}
+</ol>

@@ -1,0 +1,15 @@
+{% extends "base/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="content-section">
+                    <form method="POST" action="">
+                      {% csrf_token %}
+                      <h3>Are you sure you want to DELETE <strong>{{ object }}?</strong></h3>
+                        <hr>
+                    <div class="form-group">
+                        <button class="btn btn-outline-danger" type="submit">Yes, Delete</button>
+                        <a class="btn btn-outline-secondary" href="{% url 'list-survey' %}">Cancel</a>
+                    </div>
+                    </form>
+</div>
+{% endblock content %}

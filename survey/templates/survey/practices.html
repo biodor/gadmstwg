@@ -1,0 +1,327 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% include 'partials/_alerts.html' %}
+    <div class="card" style="margin-bottom: 20px;
+  background-color: #fff; border: 1px solid #337AB7; border-radius: 4px; -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05); box-shadow: 0 1px 1px rgba(0, 0, 0, .05);">
+        <div class="card-header"  style="background-color: #337AB7;">
+            <h3 style="margin-top: 0;
+  margin-bottom: 0;
+  font-size: 18px;
+  color: #fff;">WORK PRACTICES AND CONDITIONS</h3>
+                </div>
+        <div class="card-body">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-row">
+                <label style="color:purple;"><strong>Leave Privileges: </strong></label>
+            </div>
+    <div class="dropdown-divider"></div>
+    <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+            {{ form.priviledges_pay|as_crispy_field }}
+            {{ form.others_privpay|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+            {{ form.availed_leaved|as_crispy_field }}
+            {{ form.others_availeaved|as_crispy_field }}
+            {{ form.author|as_crispy_field }}
+                {{ form.status|as_crispy_field }}
+            </div>
+    </div>
+            <div class="dropdown-divider"></div>
+            <hr style="height:2px;background:black;" >
+            <div class="form-row">
+               <label style="color:purple;"><strong>Absences, Tardiness, Undertime: </strong></label>
+            </div>
+            <div class="form-row">
+                <label style="color:green;"><strong>Absences: </strong></label>
+            </div>
+    <div class="form-row">
+            <div class="form-group col-md-3 mb-0">
+            {{ form.number_absences_mo|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-3 mb-0">
+            {{ form.reason_absent_health|as_crispy_field }}
+            {{ form.other_reason_absent_health|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-3 mb-0">
+            {{ form.reason_absent_family|as_crispy_field }}
+            {{ form.other_reason_absent_family|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-3 mb-0">
+            {{ form.reason_absent_office|as_crispy_field }}
+            {{ form.other_reason_absent_office|as_crispy_field }}
+            </div>
+    </div>
+
+    <div class="dropdown-divider"></div>
+            <hr style="height:2px;background:black;" >
+
+            <div class="form-row">
+                <label style="color:green;"><strong>Tardiness: </strong></label>
+            </div>
+    <div class="form-row">
+            <div class="form-group col-md-3 mb-0">
+            {{ form.number_tardines_mo|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-3 mb-0">
+            {{ form.reason_tardines_health|as_crispy_field }}
+            {{ form.other_reason_tardines_health|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-3 mb-0">
+            {{ form.reason_tardines_family|as_crispy_field }}
+            {{ form.other_reason_tardines_family|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-3 mb-0">
+            {{ form.reason_tardines_office|as_crispy_field }}
+            {{ form.other_reason_tardines_office|as_crispy_field }}
+            </div>
+    </div>
+            <div class="dropdown-divider"></div>
+            <hr style="height:2px;background:black;" >
+            <div class="form-row">
+                <label style="color:green;"><strong>Undertime: </strong></label>
+            </div>
+    <div class="form-row">
+            <div class="form-group col-md-3 mb-0">
+            {{ form.number_undertime_mo|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-3 mb-0">
+            {{ form.reason_undertime_health|as_crispy_field }}
+            {{ form.other_reason_undertime_health|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-3 mb-0">
+            {{ form.reason_undertime_family|as_crispy_field }}
+            {{ form.other_reason_undertime_family|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-3 mb-0">
+            {{ form.reason_undertime_office|as_crispy_field }}
+            {{ form.other_reason_undertime_office|as_crispy_field }}
+            </div>
+    </div>
+    <div class="dropdown-divider"></div>
+            <hr style="height:2px;background:black;" >
+            <div class="form-row">
+               <label style="color:purple;"><strong>GAD Related Facilities: </strong></label>
+            </div>
+            <div class="form-row">
+                <label style="color:green;"><strong>Nursing Room/Lactation Station Facilities: </strong></label>
+            </div>
+    <div class="form-row">
+            <div class="form-group col-md-5 mb-0">
+            {{ form.facility_nursing|as_crispy_field }}
+            </div>
+             <div class="form-group col-md-1 mb-0">
+            {{ null }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+            {{ form.facility_nursing_utilized|as_crispy_field }}
+            {{ form.facility_nursing_utilized_satisfied|as_crispy_field }}
+            {{ form.facility_nursing_utilized_satisfied_yes_reason|as_crispy_field }}
+            {{ form.facility_nursing_utilized_satisfied_no_reason|as_crispy_field }}
+            {{ form.facility_nursing_utilized_no_reason|as_crispy_field }}
+            {{ form.facility_nursing_others|as_crispy_field }}
+            </div>
+    </div>
+            <div class="dropdown-divider"></div>
+            <hr style="height:2px;background:black;" >
+            <div class="form-row">
+                <label style="color:green;"><strong>Day Care/Kiddie Room/Child Minding Facilities: </strong></label>
+            </div>
+    <div class="form-row">
+            <div class="form-group col-md-5 mb-0">
+            {{ form.facility_daycare|as_crispy_field }}
+            </div>
+             <div class="form-group col-md-1 mb-0">
+            {{ null }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+            {{ form.facility_daycare_utilized|as_crispy_field }}
+            {{ form.facility_daycare_utilized_satisfied|as_crispy_field }}
+            {{ form.facility_daycare_utilized_satisfied_yes_reason|as_crispy_field }}
+            {{ form.facility_daycare_utilized_satisfied_no_reason|as_crispy_field }}
+            {{ form.facility_daycare_utilized_no_reason|as_crispy_field }}
+            {{ form.facility_daycare_others|as_crispy_field }}
+            </div>
+    </div>
+        <div class="dropdown-divider"></div>
+            <hr style="height:2px;background:black;" >
+            <div class="form-row">
+                <label style="color:green;"><strong>Prayer/Worship/Chapel Facilities: </strong></label>
+            </div>
+    <div class="form-row">
+            <div class="form-group col-md-5 mb-0">
+            {{ form.facility_prayer|as_crispy_field }}
+            </div>
+             <div class="form-group col-md-1 mb-0">
+            {{ null }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+            {{ form.facility_prayer_utilized|as_crispy_field }}
+            {{ form.facility_prayer_utilized_satisfied|as_crispy_field }}
+            {{ form.facility_prayer_utilized_satisfied_yes_reason|as_crispy_field }}
+            {{ form.facility_prayer_utilized_satisfied_no_reason|as_crispy_field }}
+            {{ form.facility_prayer_utilized_no_reason|as_crispy_field }}
+            {{ form.facility_prayer_others|as_crispy_field }}
+            </div>
+    </div>
+        <div class="dropdown-divider"></div>
+            <hr style="height:2px;background:black;" >
+            <div class="form-row">
+                <label style="color:green;"><strong>Medical or Dental Clinic: </strong></label>
+            </div>
+    <div class="form-row">
+            <div class="form-group col-md-5 mb-0">
+            {{ form.facility_medical|as_crispy_field }}
+            </div>
+             <div class="form-group col-md-1 mb-0">
+            {{ null }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+            {{ form.facility_medical_utilized|as_crispy_field }}
+            {{ form.facility_medical_utilized_satisfied|as_crispy_field }}
+            {{ form.facility_medical_utilized_satisfied_yes_reason|as_crispy_field }}
+            {{ form.facility_medical_utilized_satisfied_no_reason|as_crispy_field }}
+            {{ form.facility_medical_utilized_no_reason|as_crispy_field }}
+            {{ form.facility_medical_others|as_crispy_field }}
+            </div>
+    </div>
+        <div class="dropdown-divider"></div>
+            <hr style="height:2px;background:black;" >
+        <div class="form-row">
+                <label style="color:green;"><strong>Recreation Facilities (i.e. gym, wellness center, etc.): </strong></label>
+            </div>
+    <div class="form-row">
+            <div class="form-group col-md-5 mb-0">
+            {{ form.facility_recreation|as_crispy_field }}
+            </div>
+             <div class="form-group col-md-1 mb-0">
+            {{ null }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+            {{ form.facility_recreation_utilized|as_crispy_field }}
+            {{ form.facility_recreation_utilized_satisfied|as_crispy_field }}
+            {{ form.facility_recreation_utilized_satisfied_yes_reason|as_crispy_field }}
+            {{ form.facility_recreation_utilized_satisfied_no_reason|as_crispy_field }}
+            {{ form.facility_recreation_utilized_no_reason|as_crispy_field }}
+            {{ form.facility_recreation_others|as_crispy_field }}
+    </div>
+    </div>
+                    <div class="form-row">
+                <div class="form-group col-md-12 mb-0">
+                    {{ form.other_facility|as_crispy_field }}
+                </div>
+            </div>
+        <div class="dropdown-divider"></div>
+            <hr style="height:2px;background:black;" >
+<div class="form-row">
+                <label style="color:green;"><strong>Finances and Loans: </strong></label>
+            </div>
+    <div class="form-row">
+            <div class="form-group col-md-5 mb-0">
+            {{ form.loans_availed|as_crispy_field }}
+            {{ form.other_loans_availed|as_crispy_field }}
+            </div>
+             <div class="form-group col-md-1 mb-0">
+            {{ null }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+            {{ form.reason_loans_availed|as_crispy_field }}
+            {{ form.other_loans_availed_reason|as_crispy_field }}
+            </div>
+    </div>
+    <div class="form-row">
+            <div class="form-group col-md-5 mb-0">
+            {{ form.financial_assitance|as_crispy_field }}
+
+            </div>
+             <div class="form-group col-md-1 mb-0">
+            {{ null }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+            {{ form.yes_identified_financial_assitance|as_crispy_field }}
+            {{ form.other_financial_assist|as_crispy_field }}
+            {{ form.been_benificiary_financial_assist|as_crispy_field }}
+            </div>
+    </div>
+
+<div class="dropdown-divider"></div>
+            <hr style="height:2px;background:black;" >
+<div class="form-row">
+                <label style="color:purple;"><strong>Stress, Sickness and Mental Health: </strong></label>
+            <div class="form-group col-md-12 mb-0">
+            <label style="color:green;"><strong>Stress: </strong></label>
+            </div>
+</div>
+    <div class="form-row">
+            <div class="form-group col-md-5 mb-0">
+            {{ form.experience_negative_stress|as_crispy_field }}
+              </div>  <div class="form-row">
+                    <div class="form-group col-md-5 mb-0">
+            {{ form.causes_negative_stress|as_crispy_field }}
+            {{ form.other_causes_stress|as_crispy_field }}
+            </div>
+             <div class="form-group col-md-1 mb-0">
+            {{ null }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+            {{ form.how_manage_stress|as_crispy_field }}
+            {{ form.other_how_manage_stress|as_crispy_field }}
+                </div>
+            </div>
+    </div>
+
+            <div class="dropdown-divider"></div>
+            <hr style="height:2px;background:black;" >
+            <div class="form-row">
+                <label style="color:green;"><strong>Sickness: </strong></label>
+</div>
+    <div class="form-row">
+            <div class="form-group col-md-4 mb-0">
+            {{ form.sickness_lifestyle|as_crispy_field }}
+            {{ form.other_sick_lifestyle|as_crispy_field }}
+            </div>
+             <div class="form-group col-md-4 mb-0">
+                 {{ form.sickness_genetic|as_crispy_field }}
+                 {{ form.other_sick_genetic|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-4 mb-0">
+            {{ form.sickness_workrelated|as_crispy_field }}
+            {{ form.other_sick_workrelated|as_crispy_field }}
+            </div>
+    </div>
+                       <div class="dropdown-divider"></div>
+            <hr style="height:2px;background:black;" >
+            <div class="form-row">
+                <label style="color:green;"><strong>Mental Health: </strong></label>
+</div>
+    <div class="form-row">
+            <div class="form-group col-md-4 mb-0">
+            {{ form.mental_health|as_crispy_field }}
+            </div>
+    </div>
+            <div class="form-row">
+            <div class="form-group col-md-5 mb-0">
+            {{ form.seek_professional|as_crispy_field }}
+                {{ form.no_seek_professional|as_crispy_field }}
+            </div>
+             <div class="form-group col-md-7 mb-0">
+                 {{ form.yes_seek_professional|as_crispy_field }}
+                 {{ form.no_seek_professional_nomedication|as_crispy_field }}
+            </div>
+    </div>
+        <div class="dropdown-divider"></div>
+            <hr style="height:2px;background:black;" >
+            <div class="form-group">
+                <a class="btn btn-secondary" href="{% url 'update-workinfo' user.id %}"><< Previous </a>
+                <button class="btn btn-primary" type="submit"> Next >></button>
+            </div>
+
+        </form>
+        </div>
+
+
+
+{% endblock content %}

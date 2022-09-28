@@ -1,0 +1,13 @@
+{% extends "base/base.html" %}
+{% load static %}
+<article class="media content-section">
+          <img src="{% static 'survey/surveyFront.png' %}">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">#</a>
+              <small class="text-muted">#</small>
+            </div>
+            <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+            <p class="article-content"></p>
+          </div>
+        </article>

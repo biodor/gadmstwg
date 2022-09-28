@@ -1,0 +1,189 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% include 'partials/_alerts.html' %}
+    <div class="card" style="margin-bottom: 20px;
+  background-color: #fff; border: 1px solid #337AB7; border-radius: 4px; -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05); box-shadow: 0 1px 1px rgba(0, 0, 0, .05);">
+        <div class="card-header"  style="background-color: #337AB7;">
+            <h3 style="margin-top: 0;
+  margin-bottom: 0;
+  font-size: 18px;
+  color: #fff;">WORK-RELATED INFORMATION</h3>
+                </div>
+        <div class="card-body">
+        <form method="POST">
+            {% csrf_token %}
+                        <div class="form-row">
+                <label><strong>Your place of work: </strong></label>
+            </div>
+    <div class="dropdown-divider"></div>
+    <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+            {{ form.place_work_region|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+            {{ form.place_work_city|as_crispy_field }}
+            {{ form.author|as_crispy_field }}
+            </div>
+    </div>
+        <div class="dropdown-divider"></div>
+            <div class="form-row">
+                <div class="form-group col-md-6 mb-0">
+                {{ form.mode_transport|as_crispy_field }}
+                </div>
+                <div class="form-group col-md-6 mb-0">
+                {{ form.amount_transport_fare|as_crispy_field }}
+                </div>
+            </div>
+            <div class="dropdown-divider"></div>
+    <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+            {{ form.travel_time_form_home|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+            {{ form.travel_time_from_work|as_crispy_field }}
+            </div>
+    </div>
+    <div class="dropdown-divider"></div>
+    <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+            {{ form.years_service|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+            {{ form.number_x_promoted|as_crispy_field }}
+            </div>
+    </div>
+    <div class="dropdown-divider"></div>
+    <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+            {{ form.attendance_inter_training|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+                <b><label for="{{ field.id_for_yes_inter_training }}" id="liyes">How often?</label></b>
+            {{ form.yes_inter_training | as_crispy_field }}
+                <b><label for="{{ field.id_for_no_inter_training }}" id="lino">Why?</label></b>
+            {{ form.no_inter_training|as_crispy_field }}
+            {{ form.no_inter_training_reason|as_crispy_field }}
+            </div>
+    </div>
+        <div class="dropdown-divider"></div>
+    <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+            {{ form.attendance_local_training|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+                <b><label for="{{ field.id_for_yes_local_training }}" id="llyes">How often?</label></b>
+            {{ form.yes_local_training|as_crispy_field }}
+                <b><label for="{{ field.id_for_no_local_training }}" id="llno">Why?</label></b>
+            {{ form.no_local_training|as_crispy_field }}
+            {{ form.no_local_training_reason|as_crispy_field }}
+            </div>
+    </div>
+        <div class="dropdown-divider"></div>
+    <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+            {{ form.attendance_inter_confer|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+                <b><label for="{{ field.id_for_yes_inter_confer }}" id="licyes">How often?</label></b>
+            {{ form.yes_inter_confer|as_crispy_field }}
+                <b><label for="{{ field.id_for_no_inter_confer }}" id="licno">Why?</label></b>
+            {{ form.no_inter_confer|as_crispy_field }}
+            {{ form.no_inter_confer_reason|as_crispy_field }}
+            </div>
+    </div>
+            <div class="dropdown-divider"></div>
+    <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+            {{ form.attendance_local_confer|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+                <b><label for="{{ field.id_for_yes_local_confer }}" id="llcyes"> How often?</label></b>
+            {{ form.yes_local_confer|as_crispy_field }}
+                <b><label for="{{ field.id_for_no_local_confer }}" id="llcno">Why?</label></b>
+            {{ form.no_local_confer|as_crispy_field }}
+            {{ form.no_local_confer_reason|as_crispy_field }}
+            </div>
+    </div>
+
+                        <div class="dropdown-divider"></div>
+            <hr style="height:2px;background:black;" >
+    <div class="form-row">
+            <div class="form-group col-md-12 mb-0">
+            {{ form.rate_technical|as_crispy_field }}
+            {{ form.rate_technical_reason|as_crispy_field }}
+            </div>
+
+    </div>
+ <div class="dropdown-divider"></div>
+    <div class="form-row">
+            <div class="form-group col-md-12 mb-0">
+            {{ form.rate_people|as_crispy_field }}
+            {{ form.rate_people_reason|as_crispy_field }}
+            </div>
+
+    </div>
+  <div class="dropdown-divider"></div>
+    <div class="form-row">
+            <div class="form-group col-md-12 mb-0">
+            {{ form.rate_tranparency|as_crispy_field }}
+            {{ form.rate_tranparency_reason|as_crispy_field }}
+            </div>
+
+    </div>
+    <div class="dropdown-divider"></div>
+    <div class="form-row">
+            <div class="form-group col-md-12 mb-0">
+            {{ form.rate_gad|as_crispy_field }}
+            {{ form.rate_gad_reason|as_crispy_field }}
+            </div>
+
+    </div>
+            <div class="dropdown-divider"></div>
+            <hr style="height:2px;background:black;" >
+    <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+            {{ form.gad_training|as_crispy_field }}
+            {{ form.gad_other_training|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+            {{ form.rate_gender_awareness|as_crispy_field }}
+            </div>
+    </div>
+                <div class="dropdown-divider"></div>
+    <div class="form-row">
+            <div class="form-group col-md-6 mb-0" style="border:1px dotted purple;">
+
+            {{ form.experience_sexual_harass|as_crispy_field }}
+            {{ form.yes_seek_assistance_codi|as_crispy_field }}
+            {{ form.yes_satisfied|as_crispy_field }}
+            {{ form.satisfied_reason|as_crispy_field }}
+            {{ form.reason_noavail_codi|as_crispy_field }}
+            {{ form.other_noavail_reason|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0" style="border:1px dotted green;">
+            {{ form.experience_domestic_violence|as_crispy_field }}
+            {{ form.yes_seek_help|as_crispy_field }}
+            {{ form.yes_towhom|as_crispy_field }}
+            {{ form.domestic_seek_nohelp|as_crispy_field }}
+            {{ form.reason_noseek_help|as_crispy_field }}
+            </div>
+    </div>
+        <div class="form-row">
+            <div class="form-group col-md-12 mb-0">
+            {{ form.iswork_affected|as_crispy_field }}
+            {{ form.yes_reason|as_crispy_field }}
+            </div>
+        </div>
+<div class="dropdown-divider"></div>
+            <hr style="height:2px;background:black;" >
+            <div class="form-group">
+                <a class="btn btn-secondary" href="{% url 'update-household' user.id %}"><< Previous </a>
+                <button class="btn btn-primary" type="submit"> Next >></button>
+            </div>
+        </form>
+        </div>
+    </div>
+    </div>
+{% endblock content %}

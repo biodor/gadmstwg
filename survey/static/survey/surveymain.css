@@ -1,0 +1,289 @@
+/* privacy */
+/*
+    #div_id_number_people_live_household div {
+        display:inline-flex;
+        width: 100%;
+    } /* Renders the radio buttons inline and spreads across your div
+    #div_id_spouse_employed div {
+        display:inline-flex;
+        width: 100%;
+    } /* Renders the radio buttons inline and spreads across your div
+    #div_id_place_work div {
+        display:inline-flex;
+        width: 100%;
+        font-bold: true;
+}
+
+/*
+    #div_id_source_income_spouse div {
+        display:inline-flex;
+        width: 100%;
+    }  Renders the radio buttons inline and spreads across your div
+    #div_id_number_childs div {
+        display:inline-flex;
+        width: 100%;
+    }
+    #div_id_other_family div {
+        display:inline-flex;
+        width: 100%;
+    }
+        #div_id_house_help div {
+        display:inline-flex;
+        width: 100%;
+    }
+    */
+    /*
+#div_id_civil_status{
+border-bottom: 2px solid purple;
+padding-bottom: 15px !important;
+}
+#div_id_religion{
+border-top: 2px solid purple;
+padding-top: 15px !important;
+}
+#div_id_name{
+border-top: 2px solid purple;
+padding-top: 15px !important;
+}
+
+#div_id_highest_educ{
+border-top: 2px solid purple;
+padding-top: 15px !important;
+}
+#div_id_employment_status{
+border-top: 2px solid purple;
+padding-top: 15px !important;
+}
+#div_id_number_childs{
+border-top: 2px solid purple;
+padding-top: 15px !important;
+}
+#div_id_num_people{
+border-top: 2px solid purple;
+padding-top: 15px !important;
+}
+#div_id_number_children_earning{
+border-top: 2px solid purple;
+padding-top: 15px !important;
+}
+#div_id_years_service{
+border-top: 2px solid purple;
+padding-top: 15px !important;
+}
+#div_id_attendance_inter_training{
+border-top: 2px solid purple;
+padding-top: 15px !important;
+}
+#div_id_attendance_inter_confer{
+border-top: 2px solid purple;
+padding-top: 15px !important;
+}
+#div_id_rate_technical{
+border-top: 2px solid purple;
+padding-top: 15px !important;
+}
+#div_id_gad_training{
+border-top: 2px solid purple;
+padding-top: 15px !important;
+}
+#div_id_experience_sexual_harass{
+border-top: 2px solid purple;
+padding-top: 15px !important;
+}
+#div_id_number_absences_mo{
+border-top: 2px solid purple;
+padding-top: 15px !important;
+}
+#div_id_facility_nursing{
+border-top: 2px solid purple;
+padding-top: 15px !important;
+}
+#div_id_loans_availed{
+border-top: 2px solid purple;
+padding-top: 15px !important;
+}
+#div_id_sickness_lifestyle{
+border-top: 2px solid purple;
+padding-top: 15px !important;
+}
+#div_id_mental_health{
+border-top: 2px solid purple;
+padding-top: 15px !important;
+}
+*/
+#id_statement1 {
+    resize; none;
+    border: none;
+    height: 170px;
+    readonly: true;
+    text-align: justify;
+    font-size: 19px; font-bold: true;
+    background-color: white;
+    }
+#id_statement2 {
+    resize; none;
+    border: none;
+    height: 70px;
+    disable: true;
+    text-align: justify;
+    font-size: 19px; font-bold: true;
+    background-color: white;
+    }
+#id_statement3 {
+    resize; false;
+    border: none;
+    height: 60px;
+    disable: true;
+    text-align: justify;
+    font-size: 19px;
+    background-color: white;
+    }
+#div_id_statement1 {
+    border: 10px;
+    }
+
+
+/* global */
+        .form-check {
+            margin-left: 40px;
+        }
+        .requiredField {
+            font-weight: bold;
+        }
+        #div_id_pursuant {font-weight: bold;}
+
+        #div_id_num_people {font-weight: bold;}
+/*
+        #div_id_res_city {
+            margin-left: 20px;
+        }
+        #div_id_educ_program {
+            margin-left: 20px;
+        }
+        #div_id_reason_status {
+            margin-left: 20px;
+        }
+        #div_id_reason_status_others {
+            margin-left: 40px;
+        }
+
+        #div_id_place_work {
+            margin-left: 20px;
+        }
+
+        #div_id_place_where {
+            margin-left: 40px;
+        }
+        #div_id_source_income_spouse {
+            margin-left: 20px;
+        }
+        #div_id_gross_mothly_salary_spouse {
+            margin-left: 20px;
+        }
+        #div_id_other_family {
+            margin-left: 20px;
+        }
+        #div_id_house_help {
+            margin-left: 20px;
+        }
+        #div_id_total_number_in_household {
+            margin-left: 20px;
+        }
+        #id_name {
+            margin-left: 10px;
+        }
+
+        #div_id_indigenous {
+            margin-left:10px;
+            }
+
+        #div_id_indigenous_specify {
+            margin-left:25px;
+            }
+
+        #div_id_disability {
+            margin-left:10px;
+            }
+
+        #div_id_disability_specify {
+            margin-left:25px;
+            }
+
+        #div_id_soloparent {
+            margin-left:10px;
+            }
+
+        #div_id_soloparent_specify {
+            margin-left:25px;
+            }
+*/
+/* profile */
+/*
+        #id_position {
+            margin-left: 10px;
+        }
+        #id_religion {
+            margin-left: 10px;
+        }
+        #id_res_region {
+            margin-left: 10px;
+        }
+        #id_res_city {
+            margin-left: 10px;
+        }
+        #id_educ_program {
+            margin-left: 10px;
+        }
+        #id_reason_status_others {
+            margin-left: 10px;
+        }
+*/
+
+/* household
+#id_place_where {
+        margin-left: 10px;
+    }
+*/
+/* work
+#id_place_work_region, #id_place_work_city, #id_no_inter_training_reason, #id_no_local_training_reason, #id_no_inter_confer_reason, #id_no_local_confer_reason, #id_rate_technical_reason, #id_rate_people_reason, #id_rate_tranparency_reason, #id_gad_other_training, #id_reason_noseek_help,#id_yes_reason  {
+        margin-left: 20px;
+    }
+
+#div_id_mode_transport {
+        margin-left: 10px;
+        }
+*/
+
+/* membership
+#id_other_membership {
+        margin-left: 10px;
+        height: 70px;
+    }
+    */
+/* Work Info */
+
+
+/* otherinfo */
+#id_skills, #id_Hobbies, #id_Allergies, #id_suggestion, #id_concern  {
+        margin-left: 10px;
+        height: 70px;
+    }
+
+        .list-group-item a {
+            transition: .2s ease-in-out;
+        }
+
+        .list-group-item:hover a {
+            font-size: 17px;
+        }
+
+        .list-group-item:hover {
+            background-color: #F7F7F7;
+        }
+
+        .active-link {
+            font-size: 17px;
+            background-color: #F7F7F7;
+        }
+
+

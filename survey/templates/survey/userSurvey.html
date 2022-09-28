@@ -1,0 +1,55 @@
+{% extends "base/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+        <div class="row">
+            {% if messages %}
+            {% for display in messages %}
+            {{ display }}
+            {% endfor %}
+            {% endif %}
+            <div class="col-md-8>
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">DOTr GAD-MS SURVEY</h4></div>
+                <div>
+                  <p class="card-category"><i class="material-icons"></i>
+</div>
+                <div class="card-body">
+                  <div class="table-responsive">
+
+                    <table class="table">
+                      <thead class=" text-primary">
+                        <th>
+                          Respondents profile
+                        </th>
+                        <th>
+                          Household Information
+                        </th>
+                      <th>
+                        </th>
+                      </thead>
+                        {% for data in survey %}
+                        {% if data.author == user %}
+                      <tbody>
+                        <tr>
+                          <td>
+                           {{ data.id }}
+                          </td>
+                          <td>
+                            <a href="{% url 'update-profile' data.author_id %}" > Edit |</a>
+                            <a href="{% url 'delete-survey' data.id %}" >| Delete </a>
+                          </td>
+                        </tr>
+
+                      </tbody>
+                        {% endif %}
+                        {% endfor %}
+
+                    </table>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+          {% endblock content %}

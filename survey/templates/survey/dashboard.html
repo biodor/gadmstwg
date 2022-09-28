@@ -1,0 +1,711 @@
+
+{% extends "base/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+{% block scripts %}
+<script>
+window.onload = function () {
+$(document).ready(function(){
+    // ------------------ by sex ---------------------------//
+    var ctx = document.getElementById("myChart").getContext("2d");
+    // draw empty chart//
+    var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ["Male", "Female"],
+            datasets: [
+                {
+                    label: "Number of by Sex",
+                    fill: false,
+                    lineTension: 0.1,
+                    backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#99ff99","#66ffff","#ff99ff","#ffff99","#0066ff","#cccc00"],
+                    borderColor: "#ffffff",
+                    borderCapStyle: 'butt',
+                    borderDash: [],
+                    borderDashOffset: 0.0,
+                    borderJoinStyle: 'miter',
+                    pointBorderColor: "rgba(75,192,192,1)",
+                    pointBackgroundColor: "#fff",
+                    pointBorderWidth: 1,
+                    pointHoverRadius: 5,
+                    pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                    pointHoverBorderColor: "rgba(220,220,220,1)",
+                    pointHoverBorderWidth: 2,
+                    pointRadius: 1,
+                    pointHitRadius: 20,
+                    data: [{{ sexm }},{{ sexf }}],
+                    spanGaps: false,
+                }
+            ]
+        },
+        options: {
+            tooltips: {
+                mode: 'index',
+                intersect: false
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
+    });
+
+// ------------------- by employment status --------------------
+ var ecctx = document.getElementById("ecChart").getContext("2d");
+    // draw empty chart
+    var ecChart = new Chart(ecctx, {
+        type: 'bar',
+        data: {
+            labels: ["PA", "Co-Term", "Permanent", "Temporary", "Contractual", "Casual", "JO", "Re-Enlist", "TA/Consultant"],
+            datasets: [
+                {
+                    label: "Employment Status",
+                    fill: false,
+                    lineTension: 0.1,
+                    backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#99ff99","#66ffff","#ff99ff","#ffff99","#0066ff","#cccc00"],
+                    borderColor: "#ffffff",
+                    borderCapStyle: 'butt',
+                    borderDash: [],
+                    borderDashOffset: 0.0,
+                    borderJoinStyle: 'miter',
+                    pointBorderColor: "rgba(75,192,192,1)",
+                    pointBackgroundColor: "#fff",
+                    pointBorderWidth: 1,
+                    pointHoverRadius: 5,
+                    pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                    pointHoverBorderColor: "rgba(220,220,220,1)",
+                    pointHoverBorderWidth: 2,
+                    pointRadius: 1,
+                    pointHitRadius: 20,
+                    data: [{{ empstatPAsdd }}, {{ empstatCTsdd }}, {{ empstatPsdd }}, {{ empstatTsdd }},  {{ empstatCsdd }},
+                    {{ empstatCAsdd }}, {{ empstatJOsdd }},  {{ empstatREsdd }}, {{ empstatTAsdd }}],
+                    spanGaps: false,
+                }
+            ]
+        },
+        options: {
+            tooltips: {
+                mode: 'index',
+                intersect: false
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
+    });
+
+// ------------------- Civil Status --------------------
+ var ecctx = document.getElementById("civilStat").getContext("2d");
+    // draw empty chart
+    var phpChart = new Chart(ecctx, {
+        type: 'bar',
+        data: {
+            labels: ["Single","Married","Annulled", "Widow/er","Legally Separated"],
+            datasets: [
+                {
+                    label: "Civil Status",
+                    fill: false,
+                    lineTension: 0.1,
+                    backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#99ff99","#66ffff","#ff99ff","#ffff99","#0066ff","#cccc00"],
+                    borderColor: "#ffffff",
+                    borderCapStyle: 'butt',
+                    borderDash: [],
+                    borderDashOffset: 0.0,
+                    borderJoinStyle: 'miter',
+                    pointBorderColor: "rgba(75,192,192,1)",
+                    pointBackgroundColor: "#fff",
+                    pointBorderWidth: 1,
+                    pointHoverRadius: 5,
+                    pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                    pointHoverBorderColor: "rgba(220,220,220,1)",
+                    pointHoverBorderWidth: 2,
+                    pointRadius: 1,
+                    pointHitRadius: 20,
+                    data: [{{ cssdd20 }}, {{ cssdd31 }}, {{ cssdd41 }}, {{ cssdd51 }}, {{ cssdd61 }}],
+                    spanGaps: true,
+                }
+            ]
+        },
+        options: {
+            tooltips: {
+                mode: 'index',
+                intersect: false
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
+    });
+
+// ------------------- by employee AGE --------------------
+ var ecctx = document.getElementById("phpChart").getContext("2d");
+    // draw empty chart
+    var phpChart = new Chart(ecctx, {
+        type: 'bar',
+        data: {
+            labels: ["20-30 y/o", "31-40 y/o", "41-50 y/o", "51-60 y/o", "Above 61 y/o"],
+            datasets: [
+                {
+                    label: "Age",
+                    fill: false,
+                    lineTension: 0.1,
+                    backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#99ff99","#66ffff","#ff99ff","#ffff99","#0066ff","#cccc00"],
+                    borderColor: "#ffffff",
+                    borderCapStyle: 'butt',
+                    borderDash: [],
+                    borderDashOffset: 0.0,
+                    borderJoinStyle: 'miter',
+                    pointBorderColor: "rgba(75,192,192,1)",
+                    pointBackgroundColor: "#fff",
+                    pointBorderWidth: 1,
+                    pointHoverRadius: 5,
+                    pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                    pointHoverBorderColor: "rgba(220,220,220,1)",
+                    pointHoverBorderWidth: 2,
+                    pointRadius: 1,
+                    pointHitRadius: 20,
+                    data: [{{ agesdd20 }}, {{ agesdd31 }}, {{ agesdd41 }}, {{ agesdd51 }}, {{ agesdd61 }}],
+                    spanGaps: true,
+                }
+            ]
+        },
+        options: {
+            tooltips: {
+                mode: 'index',
+                intersect: false
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
+    });
+
+// ------------------- Agency --------------------
+ var ecctx = document.getElementById("agency").getContext("2d");
+    // draw empty chart
+    var phpChart = new Chart(ecctx, {
+        type: 'bar',
+        data: {
+            responsive: true,
+            labels: ["CPA","MARINA","PCG", "PPA","PMMA"],
+            datasets: [
+                {
+                    label: "Agency",
+                    fill: false,
+                    lineTension: 0.1,
+                    //backgroundColor: Object.values(Utils.CHART_COLORS),
+                    backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#99ff99","#66ffff","#ff99ff","#ffff99","#0066ff","#cccc00"],
+                    borderColor: "#ffffff",
+                    borderCapStyle: 'butt',
+                    borderDash: [],
+                    borderDashOffset: 0.0,
+                    borderJoinStyle: 'miter',
+                    pointBorderColor: "rgba(75,192,192,1)",
+                    pointBackgroundColor: "#fff",
+                    pointBorderWidth: 1,
+                    pointHoverRadius: 5,
+                    pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                    pointHoverBorderColor: "rgba(220,220,220,1)",
+                    pointHoverBorderWidth: 2,
+                    pointRadius: 1,
+                    pointHitRadius: 20,
+                    data: [{{ cpasdd20 }}, {{ marinasdd31 }}, {{ pcgsdd41 }}, {{ ppasdd51 }}, {{ pmmasdd61 }}],
+                    spanGaps: true,
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            tooltips: {
+                mode: 'index',
+                intersect: false
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
+    });
+
+// ------------------- Education --------------------
+ var ecctx = document.getElementById("education").getContext("2d");
+    // draw empty chart
+    var phpChart = new Chart(ecctx, {
+        type: 'bar',
+        data: {
+            labels: ["Doctoral","Masteral","Bachelor", "UnderGraduate","Vocational", "High School"],
+            datasets: [
+                {
+                    label: "Education Attained",
+                    fill: false,
+                    lineTension: 0.1,
+                    backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#99ff99","#66ffff","#ff99ff","#ffff99","#0066ff","#cccc00"],
+                    borderColor: "#ffffff",
+                    borderCapStyle: 'butt',
+                    borderDash: [],
+                    borderDashOffset: 0.0,
+                    borderJoinStyle: 'miter',
+                    pointBorderColor: "rgba(75,192,192,1)",
+                    pointBackgroundColor: "#fff",
+                    pointBorderWidth: 1,
+                    pointHoverRadius: 5,
+                    pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                    pointHoverBorderColor: "rgba(220,220,220,1)",
+                    pointHoverBorderWidth: 2,
+                    pointRadius: 1,
+                    pointHitRadius: 20,
+                    data: [{{ docsdd20 }}, {{ massdd31 }}, {{ collsdd41 }}, {{ undersdd51 }}, {{ vocsdd61 }}, {{ highsdd61 }}],
+                    spanGaps: true,
+                }
+            ]
+        },
+        options: {
+            tooltips: {
+                mode: 'index',
+                intersect: false
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
+    });
+
+// ------------------- Solo parent --------------------
+ var ecctx = document.getElementById("solo").getContext("2d");
+    // draw empty chart
+    var phpChart = new Chart(ecctx, {
+        type: 'bar',
+        data: {
+            labels: ["Male", "Female"],
+            datasets: [
+                {
+                    label: "Solo Parent",
+                    fill: false,
+                    lineTension: 0.1,
+                    backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#99ff99","#66ffff","#ff99ff","#ffff99","#0066ff","#cccc00"],
+                    borderColor: "#ffffff",
+                    borderCapStyle: 'butt',
+                    borderDash: [],
+                    borderDashOffset: 0.0,
+                    borderJoinStyle: 'miter',
+                    pointBorderColor: "rgba(75,192,192,1)",
+                    pointBackgroundColor: "#fff",
+                    pointBorderWidth: 1,
+                    pointHoverRadius: 5,
+                    pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                    pointHoverBorderColor: "rgba(220,220,220,1)",
+                    pointHoverBorderWidth: 2,
+                    pointRadius: 1,
+                    pointHitRadius: 20,
+                    data: [{{ solom }}, {{ solof }}],
+                    spanGaps: true,
+                }
+            ]
+        },
+        options: {
+            tooltips: {
+                mode: 'index',
+                intersect: false
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
+    });
+// ------------------- Indigenous --------------------
+ var ecctx = document.getElementById("indigen").getContext("2d");
+    // draw empty chart
+    var phpChart = new Chart(ecctx, {
+        type: 'bar',
+        data: {
+            labels: ["Male", "Female"],
+            datasets: [
+                {
+                    label: "Indigenous",
+                    fill: false,
+                    lineTension: 0.1,
+                    backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#99ff99","#66ffff","#ff99ff","#ffff99","#0066ff","#cccc00"],
+                    borderColor: "#ffffff",
+                    borderCapStyle: 'butt',
+                    borderDash: [],
+                    borderDashOffset: 0.0,
+                    borderJoinStyle: 'miter',
+                    pointBorderColor: "rgba(75,192,192,1)",
+                    pointBackgroundColor: "#fff",
+                    pointBorderWidth: 1,
+                    pointHoverRadius: 5,
+                    pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                    pointHoverBorderColor: "rgba(220,220,220,1)",
+                    pointHoverBorderWidth: 2,
+                    pointRadius: 1,
+                    pointHitRadius: 20,
+                    data: [{{ indigenm }}, {{ indigenf }}],
+                    spanGaps: true,
+                }
+            ]
+        },
+        options: {
+            tooltips: {
+                mode: 'index',
+                intersect: false
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
+    });
+// ------------------- Disability --------------------
+ var ecctx = document.getElementById("disability").getContext("2d");
+    // draw empty chart
+    var phpChart = new Chart(ecctx, {
+        type: 'bar',
+        data: {
+            labels: ["Male", "Female"],
+            datasets: [
+                {
+                    label: "Person With Disability",
+                    fill: false,
+                    lineTension: 0.1,
+                    backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#99ff99","#66ffff","#ff99ff","#ffff99","#0066ff","#cccc00"],
+                    borderColor: "#ffffff",
+                    borderCapStyle: 'butt',
+                    borderDash: [],
+                    borderDashOffset: 0.0,
+                    borderJoinStyle: 'miter',
+                    pointBorderColor: "rgba(75,192,192,1)",
+                    pointBackgroundColor: "#fff",
+                    pointBorderWidth: 1,
+                    pointHoverRadius: 5,
+                    pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                    pointHoverBorderColor: "rgba(220,220,220,1)",
+                    pointHoverBorderWidth: 2,
+                    pointRadius: 1,
+                    pointHitRadius: 20,
+                    data: [{{ disabilitym }}, {{ disabilityf }}],
+                    spanGaps: true,
+                }
+            ]
+        },
+        options: {
+            tooltips: {
+                mode: 'index',
+                intersect: false
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
+    });
+
+///apex
+
+});
+}
+      </script>
+{% endblock scripts %}
+{% include 'partials/_alerts.html' %}
+
+
+
+<!-- Card stats -->
+          <div class="row">
+            <div class="col-xl-3 col-md-6">
+              <div class="card card-stats">
+                <!-- Card body -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Total User Accounts</h5>
+                      <span class="h2 font-weight-bold mb-0">{{ sddcount }}</span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
+                        <i class="ni ni-active-40"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="mt-3 mb-0 text-sm">
+                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 0.00%</span>
+                    <span class="text-nowrap">As of today</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+              <div class="card card-stats">
+                <!-- Card body -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Total Male</h5>
+                      <span class="h2 font-weight-bold mb-0">{{ sexm }}</span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
+                        <i class="ni ni-chart-pie-35"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="mt-3 mb-0 text-sm">
+                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 0.00%</span>
+                    <span class="text-nowrap">As of today</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+              <div class="card card-stats">
+                <!-- Card body -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Total Female</h5>
+                      <span class="h2 font-weight-bold mb-0">{{ sexf }}</span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
+                        <i class="ni ni-money-coins"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="mt-3 mb-0 text-sm">
+                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 0.00%</span>
+                    <span class="text-nowrap">As of today</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+              <div class="card card-stats">
+                <!-- Card body -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Total Respondents</h5>
+                      <span class="h2 font-weight-bold mb-0">{{ totsex }}</span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
+                        <i class="ni ni-chart-bar-32"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="mt-3 mb-0 text-sm">
+                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 0.00%</span>
+                    <span class="text-nowrap">As of today</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+<!-- -------------------------------------------- Charts -------------------------------------------------------- -->
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card card-chart">
+          <div class="card-header card-header-success">
+            <div><canvas class="ct-chart" id="myChart"></canvas></div>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">By Sex  </h4>
+            <p class="card-category">
+ <!--             <span class="text-success"><h3>Female:<b>{{ sexf }}</b> Male: <b>{{ sexm }}</b> </h3></span> </p> -->
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">access_time</i> For the month of {% now "F d, Y" %}.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-chart">
+          <div class="card-header card-header-warning">
+            <div><canvas class="ct-chart" id="ecChart"></canvas></div>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">By Employment Status</h4>
+<!--            <p class="card-category"> {{ tecdata }}kwh Electricity Consumption</p> -->
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">access_time</i> For the month of {% now "F d, Y" %}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-chart">
+          <div class="card-header card-header-danger">
+            <div><canvas class="ct-chart" id="phpChart"></canvas></div>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">By Age </h4>
+ <!--           <p class="card-category"> {{ tphpdata }}Php Electricity Consumption </p> -->
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">access_time</i> For the month of {% now "F d, Y" %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!--- Civil Status --------------------------------------------------- -->
+
+ <div class="row">
+      <div class="col-md-4">
+        <div class="card card-chart">
+          <div class="card-header card-header-success">
+            <div><canvas class="ct-chart" id="civilStat"></canvas></div>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">By Civil Status  </h4>
+            <p class="card-category">
+ <!--             <span class="text-success"><h3>Female:<b>{{ sexf }}</b> Male: <b>{{ sexm }}</b> </h3></span> </p> -->
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">access_time</i> As of today {% now "F d, Y" %}.
+            </div>
+          </div>
+        </div>
+      </div>
+
+<!--- Agency --------------------------------------------------- -->
+      <div class="col-md-4">
+        <div class="card card-chart">
+          <div class="card-header card-header-danger">
+            <div><canvas class="ct-chart" id="agency"></canvas></div>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">By Agency  </h4>
+            <p class="card-category">
+ <!--             <span class="text-success"><h3>Female:<b>{{ sexf }}</b> Male: <b>{{ sexm }}</b> </h3></span> </p> -->
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">access_time</i> As of today {% now "F d, Y" %}.
+            </div>
+          </div>
+        </div>
+      </div>
+   <!--- Education --------------------------------------------------- -->
+      <div class="col-md-4">
+        <div class="card card-chart">
+          <div class="card-header card-header-danger">
+            <div><canvas class="ct-chart" id="education"></canvas></div>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">By Education Attained  </h4>
+            <p class="card-category">
+ <!--             <span class="text-success"><h3>Female:<b>{{ sexf }}</b> Male: <b>{{ sexm }}</b> </h3></span> </p> -->
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">access_time</i> As of today {% now "F d, Y" %}.
+            </div>
+          </div>
+        </div>
+      </div>
+ </div>
+
+<!--- Solo Parent --------------------------------------------------- -->
+
+ <div class="row">
+      <div class="col-md-4">
+        <div class="card card-chart">
+          <div class="card-header card-header-success">
+            <div><canvas class="ct-chart" id="solo"></canvas></div>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">By Solo Parent  </h4>
+            <p class="card-category">
+ <!--             <span class="text-success"><h3>Female:<b>{{ sexf }}</b> Male: <b>{{ sexm }}</b> </h3></span> </p> -->
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">access_time</i> As of today {% now "F d, Y" %}.
+            </div>
+          </div>
+        </div>
+      </div>
+
+<!--- Indigenous --------------------------------------------------- -->
+      <div class="col-md-4">
+        <div class="card card-chart">
+          <div class="card-header card-header-danger">
+            <div><canvas class="ct-chart" id="indigen"></canvas></div>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">By Indigenous  </h4>
+            <p class="card-category">
+ <!--             <span class="text-success"><h3>Female:<b>{{ sexf }}</b> Male: <b>{{ sexm }}</b> </h3></span> </p> -->
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">access_time</i> As of today {% now "F d, Y" %}.
+            </div>
+          </div>
+        </div>
+      </div>
+   <!--- PWD --------------------------------------------------- -->
+      <div class="col-md-4">
+        <div class="card card-chart">
+          <div class="card-header card-header-danger">
+            <div><canvas class="ct-chart" id="disability"></canvas></div>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">By Disability  </h4>
+            <p class="card-category">
+ <!--             <span class="text-success"><h3>Female:<b>{{ sexf }}</b> Male: <b>{{ sexm }}</b> </h3></span> </p> -->
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">access_time</i> As of today {% now "F d, Y" %}.
+            </div>
+          </div>
+        </div>
+      </div>
+ </div>
+
+{% endblock content %}

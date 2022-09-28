@@ -1,0 +1,64 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% include 'partials/_alerts.html' %}
+
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">GAD Profiling for Maritime Sector Agencies</h4></div>
+                <div>
+                    <p class="card-category"><h3 style="color:blue;"><center><strong> INFORMED CONSENT FORM AND DATA PRIVACY STATEMENT </strong></center></h3></p>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                       <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-3"><b> DATA PRIVACY STATEMENT </b></legend>
+                <div style="padding-left:2em"><p>The information I will provide in this survey will be used for GAD SDD of my respective agency. With this: </p>
+                <ul type="A.">
+                    <li>I consent to allow my personal data be collected/processed for the above specific and legitimate purpose.</li>
+                    <li>I understand that my personal data will be processed in a manner that ensures appropriate privacy and security safeguards.</li>
+                    <li>I hereby affirm my right to be informed, object to processing, access and rectify, suspend and withdraw my personal data and be indemnified in case of damages pursuant to the provisions of the Republic Act No. 10173 (Data Privacy Act of 2012) and its corresponding Implementing Rules and Regulations.</li>
+                </ul>
+                    <p><input type="checkbox" value="I Agree" checked> I Agree </p></div>
+                <hr>
+               {{ form|crispy }}
+            </fieldset>
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-3"><b> INFORMED CONSENT FORM </b></legend>
+                <div style="padding-left:2em"><p>I confirm that I have read and understood the information about the project as explained by the researchers. I confirm that I have had the opportunity to ask questions and the researchers have answered any questions about the study to my satisfaction. I understand that my participation is voluntary and that I am free to withdraw from the project at any time, without having to give a reason and without any consequences. I understand that any information recorded in this questionnaire will remain confidential and no information that identifies me will be made publicly available. I consent to the use of my data in any research, publications, sharing and archiving as explained by the researchers. </p>
+
+                    <p><input type="checkbox" value="I confirm" checked> I Confirm </p></div>
+                <hr>
+            </fieldset>
+                        <fieldset class="form-group">
+                <div style="padding-left:2em"><p>By pressing <b>NEXT</b> button, I agree to take part in the study.</p>
+                    </div><hr>
+            </fieldset>
+
+            <div class="form-group">
+                {% if user.profile.privacy is null %}
+
+                <a class="btn btn-secondary" href="{% url 'logout' %}"> Cancel </a>
+                <button class="btn btn-primary" type="submit"> Next </button>
+               {% else %}
+                <a class="btn btn-secondary" href="{% url 'logout' %}"> Cancel </a>
+                <a class="btn btn-primary" href="{% url 'update-profile' user.id %}">Next </a>
+               {% endif %}
+
+            </div>
+        </form>
+    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+{% endblock %}

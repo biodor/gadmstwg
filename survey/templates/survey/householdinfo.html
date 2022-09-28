@@ -1,0 +1,89 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% include 'partials/_alerts.html' %}
+    <div class="card" style="margin-bottom: 20px;
+  background-color: #fff; border: 1px solid #337AB7; border-radius: 4px; -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05); box-shadow: 0 1px 1px rgba(0, 0, 0, .05);">
+        <div class="card-header"  style="background-color: #337AB7;">
+            <h3 style="margin-top: 0;
+  margin-bottom: 0;
+  font-size: 18px;
+  color: #fff;">HOUSEHOLD-RELATED INFORMATION</h3>
+                </div>
+        <div class="card-body">
+        <form method="POST">
+            {% csrf_token %}
+    <div class="form-row">
+            <div class="form-group col-md-4 mb-0">
+            {{ form.breadwinner|as_crispy_field }}
+            </div>
+    </div>
+    <div class="dropdown-divider"></div>
+    <div class="form-row" >
+            <div class="form-group col-md-4 mb-0">
+            {{ form.spouse_employed|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-4 mb-0">
+            {{ form.place_work|as_crispy_field }}
+            </div>
+             <div class="form-group col-md-4 mb-0">
+             {{ form.place_where|as_crispy_field }}
+            {{ form.author|as_crispy_field }}
+            </div>
+
+        </div>
+        <div class="dropdown-divider"></div>
+         <div class="form-row">
+            <div class="form-group col-md-4 mb-0">
+            {{ form.source_income_spouse|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-4 mb-0">
+            {{ form.gross_mothly_salary_spouse|as_crispy_field }}
+            </div>
+        </div>
+
+         <div class="dropdown-divider"></div>
+         <div class="form-row" >
+            <div class="form-group col-md-4 mb-0">
+                {{ form.number_childs| as_crispy_field }}
+            </div>
+            <div class="form-group col-md-4 mb-0">
+            {{ form.ages_childs_household|as_crispy_field }}
+            </div>
+        </div>
+            <hr style="height:2px;background:black;" >
+         <div class="dropdown-divider"></div>
+            <div class="form-row">
+                <label><strong>Number of People living in your household: </strong></label>
+            </div>
+         <div class="form-row">
+            <div class="form-group col-md-4 mb-0">
+            {{ form.number_people_live_household|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-4 mb-0">
+            {{ form.other_family|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-4 mb-0">
+            {{ form.house_help|as_crispy_field }}
+            </div>
+        </div>
+            <div class="dropdown-divider"></div>
+            <div class="form-row">
+            <div class="form-group col-md-4 mb-0">
+            {{ form.number_children_earning|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-4 mb-0">
+            {{ form.other_earning_household|as_crispy_field }}
+            </div>
+        </div>
+            <hr style="height:2px;background:black;" >
+            <div class="dropdown-divider"></div>
+            <div class="form-group">
+                <a class="btn btn-secondary" href="{% url 'update-profile' user.id %}"><< Previous </a>
+                <button class="btn btn-primary" type="submit"> Next >></button>
+            </div>
+        </form>
+        </div>
+    </div>
+{% endblock content %}

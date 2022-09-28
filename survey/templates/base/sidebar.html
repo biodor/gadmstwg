@@ -1,0 +1,83 @@
+{% load static %}
+<div class="sidebar">
+    <nav class="sidebar-nav">
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'dashboard' %}"><i class="icon-speedometer"></i> Dashboard </a>
+            </li>
+    <!--         -->
+            {% if user.is_authenticated and user.privacy.author == user.profile.user %}
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#">
+                    <i class="nav-icon icon-user"></i> Survey Modules</a>
+
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'update-profile' user.id %}">
+                            <i class="nav-icon icon-puzzle"></i> Profile </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'update-household' user.id %}">
+                            <i class="nav-icon icon-puzzle"></i> Household </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'update-workinfo' user.id %}">
+                            <i class="nav-icon icon-puzzle"></i> Work Info</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'update-practices' user.id %}">
+                            <i class="nav-icon icon-puzzle"></i> Practices </a>
+                    </li>
+                    <li class="nav-item">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'update-membership' user.id %}">
+                            <i class="nav-icon icon-puzzle"></i> Membership </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'update-otherinfo' user.id %}">
+                            <i class="nav-icon icon-puzzle"></i> Other Info </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'update-suggestion' user.id %}">
+                            <i class="nav-icon icon-puzzle"></i> Suggestions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'update-otherconcern' user.id %}">
+                            <i class="nav-icon icon-puzzle"></i> Other Concerns</a>
+                    </li>
+
+                </ul>
+
+            </li>
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#">
+                    <i class="nav-icon icon-user"></i> Survey Summary</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'survey-details' user.id %}">
+                            <i class="nav-icon icon-puzzle"></i> My Survey</a>
+                    </li>
+                </ul>
+            </li>{% endif %}
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#">
+                    <i class="nav-icon icon-user"></i> Survey Help</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'survey-about' %}">
+                            <i class="nav-icon icon-puzzle"></i> Handbook</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="nav-icon icon-puzzle"></i> Chat</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+
+    {% block sidebar %}
+    {% endblock %}
+</div>
+

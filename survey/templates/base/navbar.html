@@ -1,0 +1,44 @@
+{% load static %}
+<header class="app-header navbar">
+    <button class="navbar-toggler mobile-sidebar-toggler d-lg-none mr-auto" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-link" href="#"><img src="{% static 'dist/img/gadms.png' %}"></a>
+    <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <ul class="nav navbar-nav d-md-down-none">
+        <li class="nav-item px-3">
+ <!--           <a class="nav-link" href="#">Settings</a> -->
+        </li>
+    </ul>
+    <ul class="nav navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button"
+               aria-haspopup="true" aria-expanded="false">
+                <img src="{{ user.profile.image.url }}"  class="img-avatar" alt="{{ user.username }}">Welcome! &nbsp; <strong>{{ user.username }} &nbsp;</strong>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+                <div class="dropdown-header text-center">
+                    <strong>Account Settings</strong>
+                </div>
+{% if user.is_authenticated %}
+                <a class="dropdown-item" href="{% url 'profile' %}"><i class="fa fa-user"></i> Profile</a>
+                <a class="dropdown-item" href="{% url 'password_reset' %}"><i class="fa fa-wrench"></i> Password Reset</a>
+                <a class="dropdown-item" href="{% url 'logout' %}"><i class="fa fa-usd"></i> Logout</a>
+{% else %}
+                <a class="dropdown-item" href="{% url 'register' %}"><i class="fa fa-lock"></i> Register</a>
+                <a class="dropdown-item" href="{% url 'login' %}"><i class="fa fa-lock"></i> Login</a>
+{% endif %}
+            </div>
+        </li>
+    </ul>
+    <button class="navbar-toggler aside-menu-toggler" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    {% block navbar %}
+    {% endblock %}
+
+</header>

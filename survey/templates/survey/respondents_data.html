@@ -1,0 +1,310 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-lg-5">
+        <div class="card">
+            <div class="card-header" style="background-color: #337AB7; margin-top: 0; margin-bottom: 0; font-size: 18px; color: #fff;">
+                 <i class="fa fa-align-justify"></i> Responders Profile
+            </div>
+            <div class="card-body">
+                <tbody>
+                    <tr>
+                        <td><b>Full Name:</b> {{ user.respondentprofile.name }}</td>
+                        <br><td><b>Position:</b> {{ user.respondentprofile.position }}</td>
+                        <br><td><b>Age:</b> {{ user.respondentprofile.age }}</td>
+                        <br><td><b>Sex:</b> {{ user.respondentprofile.sex }}</td>
+                        <br><td><b>Civil Status:</b> {{ user.respondentprofile.civil_status }}</td>
+                        <br><td><b>Religion:</b> {{ user.respondentprofile.religion }}</td>
+                        <br><td><b>Residence Address:</b> </td>
+                        <br><td><b>Region:</b> {{ user.respondentprofile.res_region }}</td>
+                        <br><td><b>City:</b> {{ user.respondentprofile.res_city }}</td>
+                        <br><td><b>Highest Educational Attained:</b> {{ user.respondentprofile.highest_educ }}</td>
+                        <br><td><b>Program/Degree/Course:</b> {{ user.respondentprofile.educ_program }}</td>
+                        <br><td><b>Salary Grade:</b> {{ user.respondentprofile.salary_grade }}</td>
+                        <br><td><b>Gross Monthly Salary including Allowance:</b> {{ user.respondentprofile.gross_montly_allow }}</td>
+                        <br><td><b>Employment Status:</b> {{ user.respondentprofile.employment_status }}</td>
+                        <br><td><b>Why:</b> {{ user.respondentprofile.reason_status }}, {{ user.respondentprofile.reason_status_others }}</td>
+                        <br><td><b>Created date:</b> {{ user.respondentprofile.created }}</td>
+                    </tr>
+                </tbody>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-5">
+        <div class="card">
+            <div class="card-header" style="background-color: #337AB7; margin-top: 0; margin-bottom: 0; font-size: 18px; color: #fff;">
+                 <i class="fa fa-align-justify"></i> Household Related Information
+            </div>
+            <div class="card-body">
+               <tbody>
+                    <tr>
+                        <td><b>Breadwinner: </b> {{ user.householdinfo.breadwinner }}</td>
+                        <br><td><b>Spouse Employed:</b> {{ user.householdinfo.spouse_employed }}</td>
+                        <br><td><b>Place of Work:</b> </td>
+                        <br><td><b>Region:</b> {{ user.householdinfo.place_work }}</td>
+                        <br><td><b>City:</b> {{ user.householdinfo.place_where }}</td>
+                        <br><td><b>Spouse source if income:</b> {{ user.householdinfo.source_income_spouse }}</td>
+                        <br><td><b>Spouse gross monthly salary inc. allowances:</b> {{ user.householdinfo.gross_mothly_salary_spouse }}</td>
+                        <br><td><b>Number of children:</b> {{ user.householdinfo.number_childs }}</td>
+                        <br><td><b>Ages of children:</b> {{ user.householdinfo.ages_childs_household }}</td>
+                        <br><td><b>Number of family member live in the household:</b> {{ user.householdinfo.number_people_live_household }}</td>
+                        <br><td><b>Living other family member:</b> {{ user.householdinfo.other_family }}</td>
+                        <br><td><b>Number of house help:</b> {{ user.householdinfo.house_help }}</td>
+                        <br><td><b>Total number living in household:</b> {{ user.householdinfo.total_number_in_household }}</td>
+                        <br><td><b>Number of earning child/s:</b> {{ user.householdinfo.number_children_earning }}</td>
+                        <br><td><b>Other earning in the household:</b> {{ user.householdinfo.other_earning_household }}</td>
+                        <br><td><b>Created date:</b> {{ user.householdinfo.created }}</td>
+                    </tr>
+                </tbody>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="row">
+    <div class="col-lg-5">
+        <div class="card">
+            <div class="card-header" style="background-color: #337AB7; margin-top: 0; margin-bottom: 0; font-size: 18px; color: #fff;">
+                 <i class="fa fa-align-justify"></i> Work Related Information
+            </div>
+            <div class="card-body">
+               <tbody>
+                    <tr>
+                        <td><b>Your Place of Work:</b> </td>
+                        <ul><li><b>Region: </b> {{ user.workrelatedinfo.place_work_region }}</li>
+                        <li><b>City:</b> {{ user.workrelatedinfo.place_work_city }}</li></ul>
+                        <td><b>Mode of transportation:</b> {{ user.workrelatedinfo.mode_transport }}</td>
+                        <br><td><b>Travel time from home:</b> {{ user.workrelatedinfo.travel_time_form_home }}</td>
+                        <br><td><b>Travel Time from work:</b> {{ user.workrelatedinfo.travel_time_from_work }}</td>
+                        <br><td><b>Amount of trasporation expense per day:</b> {{ user.workrelatedinfo.amount_transport_fare }}</td>
+                        <br><td><b>Years in service:</b> {{ user.workrelatedinfo.years_service }}</td>
+                        <br><td><b>Number of times promoted:</b> {{ user.workrelatedinfo.number_x_promoted }}</td>
+                        <br><td><b>Trainings:</b> </td>
+                        <br><ul><li><b>International :</b> {{ user.workrelatedinfo.attendance_inter_training }}
+                            <b>Number of times:</b>{{ user.workrelatedinfo.yes_inter_training }}
+                            <b>Reason of no training:</b> {{ user.workrelatedinfo.no_inter_training }}
+                            <b>Others:</b> {{ user.workrelatedinfo.no_inter_training_reason }}</li>
+                        <li><b>Local :</b> {{ user.workrelatedinfo.attendance_local_training }}
+                            <b>Number of times:</b>{{ user.workrelatedinfo.yes_local_training }}
+                            <b>Reason of no training:</b> {{ user.workrelatedinfo.no_local_training }}
+                            <b>Others:</b> {{ user.workrelatedinfo.no_local_training_reason }}</li></ul>
+                        <td><b>Conferences:</b> </td>
+                        <ul><li><b>International :</b> {{ user.workrelatedinfo.attendance_inter_confer }}
+                            <b>Number of times:</b>{{ user.workrelatedinfo.yes_inter_confer }}
+                            <b>Reason of no training:</b> {{ user.workrelatedinfo.no_inter_confer }}
+                            <b>Others:</b> {{ user.workrelatedinfo.no_inter_confer_reason }}</li>
+                        <li><b>Local :</b> {{ user.workrelatedinfo.attendance_local_confer }}
+                            <b>Number of times:</b>{{ user.workrelatedinfo.yes_local_confer }}
+                            <b>Reason of no training:</b> {{ user.workrelatedinfo.no_local_confer }}
+                            <b>Others:</b> {{ user.workrelatedinfo.no_local_confer_reason }}</li>
+                            </ul>
+
+                        <td><b>Rate your level of satisfaction with the Head of your Agency from 1 to 5, with 5 being the highest::</b> </td>
+                        <ul><li><b>Technical:</b> {{ user.workrelatedinfo.rate_technical }}
+                            <b>Reason:</b> {{ user.workrelatedinfo.rate_technical_reason }}</li>
+                            <li><b>People:</b> {{ user.workrelatedinfo.rate_people }}
+                            <b>Reason:</b> {{ user.workrelatedinfo.rate_people_reason }}</li>
+                            <li><b>Transparency:</b> {{ user.workrelatedinfo.rate_tranparency }}
+                            <b>Reason:</b> {{ user.workrelatedinfo.rate_tranparency_reason }}</li>
+                            <li><b>Gender and Development:</b> {{ user.workrelatedinfo.rate_tranparency }}
+                            <b>Reason:</b> {{ user.workrelatedinfo.rate_tranparency_reason }}</li>
+                            </ul>
+                        <td><b>GAD Trainings:</b> {{ user.workrelatedinfo.gad_training }}</td>
+                        <br><td><b>Other GAD training:</b> {{ user.workrelatedinfo.gad_other_training }}</td>
+                        <br><td><b>Your gender awareness:</b> {{ user.workrelatedinfo.rate_gender_awareness }}</td>
+                        <br><td><b>Experience sexual harassment:</b> {{ user.workrelatedinfo.experience_sexual_harass }}</td>
+                        <br><td><b>Seek assistance of CODI:</b> {{ user.workrelatedinfo.yes_seek_assistance_codi }}</td>
+                        <br><td><b>Staisfied CODI:</b> {{ user.workrelatedinfo.yes_satisfied }}</td>
+                        <br><td><b>Reason of non-availment of CODI:</b> {{ user.workrelatedinfo.reason_noavail_codi }}</td>
+
+                        <br><td><b>Experience domestic violence:</b> {{ user.workrelatedinfo.experience_domestic_violence }}</td>
+                        <br><td><b>Seek help:</b> {{ user.workrelatedinfo.yes_seek_help }}</td>
+                        <br><td><b>Seek to whom:</b> {{ user.workrelatedinfo.yes_towhom }}</td>
+                        <br><td><b>Reason of non seek of help:</b> {{ user.workrelatedinfo.reason_noseek_help }}</td>
+                        <br><td><b>Is your work affected:</b> {{ user.workrelatedinfo.iswork_affected }}</td>
+                        <br><td><b>How it will affect:</b> {{ user.workrelatedinfo.yes_reason }}</td>
+                        <br><td><b>Created date:</b> {{ user.workrelatedinfo.created }}</td>
+                    </tr>
+                </tbody>
+            </div>
+        </div>
+
+           <div class="card">
+            <div class="card-header" style="background-color: #337AB7; margin-top: 0; margin-bottom: 0; font-size: 18px; color: #fff;">
+                 <i class="fa fa-align-justify"></i> Membership Organizations
+            </div>
+            <div class="card-body">
+                               <tbody>
+                    <tr>
+                        <td><b>Office: </b> {{ user.membershiporganization.office }}</td>
+                        <br><td><b>Position:</b> {{ user.membershiporganization.office_position }}</td>
+                        <br><td><b>Community: </b> {{ user.membershiporganization.community }}</td>
+                        <br><td><b>Position:</b> {{ user.membershiporganization.community_position }}</td>
+                        <br><td><b>Religious: </b> {{ user.membershiporganization.religious }}</td>
+                        <br><td><b>Position:</b> {{ user.membershiporganization.religious_position }}</td>
+                        <br><td><b>Other membership organizations:</b> {{ user.membershiporganization.other_membership }}</td>
+                        <br><td><b>Created date:</b> {{ user.membershiporganization.created }}</td>
+                    </tr>
+                </tbody>
+            </div>
+        </div>
+                <div class="card">
+            <div class="card-header" style="background-color: #337AB7; margin-top: 0; margin-bottom: 0; font-size: 18px; color: #fff;">
+                 <i class="fa fa-align-justify"></i> Other Personal Information
+            </div>
+            <div class="card-body">
+                               <tbody>
+                    <tr>
+                        <td><b>Skills: </b> {{ user.otherpersonalinfo.skills }}</td>
+                        <br><td><b>Hobbies:</b> {{ user.otherpersonalinfo.Hobbies }}</td>
+                        <br><td><b>Allergies: </b> {{ user.otherpersonalinfo.Allergies }}</td>
+                        <br><td><b>Other membership organizations:</b> {{ user.membershiporganization.other_membership }}</td>
+                        <br><td><b>Created date:</b> {{ user.membershiporganization.created }}</td>
+                    </tr>
+                </tbody>
+            </div>
+        </div>
+                        <div class="card">
+            <div class="card-header" style="background-color: #337AB7; margin-top: 0; margin-bottom: 0; font-size: 18px; color: #fff;">
+                 <i class="fa fa-align-justify"></i> Suggestions
+            </div>
+            <div class="card-body">
+                               <tbody>
+                    <tr>
+                        <td><b>Suggestions: </b> {{ user.suggestions.suggestion }}</td>
+                        <br><td><b>Created date:</b> {{ user.suggestions.created }}</td>
+                    </tr>
+                </tbody>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header" style="background-color: #337AB7; margin-top: 0; margin-bottom: 0; font-size: 18px; color: #fff;">
+                 <i class="fa fa-align-justify"></i> Other Concerns
+            </div>
+            <div class="card-body">
+                               <tbody>
+                    <tr>
+                        <td><b>Other concern: </b> {{ user.otherconcern.concern }}</td>
+                        <br><td><b>Created date:</b> {{ user.otherconcern.created }}</td>
+                    </tr>
+                </tbody>
+            </div>
+        </div>
+
+    </div>
+
+          <div class="col-lg-5">
+        <div class="card">
+            <div class="card-header" style="background-color: #337AB7; margin-top: 0; margin-bottom: 0; font-size: 18px; color: #fff;">
+                 <i class="fa fa-align-justify"></i> Work Practices and Conditions
+            </div>
+            <div class="card-body">
+               <tbody>
+                    <tr>
+                        <td><b>Aware of the following Leave privileges with pay?* </b> {{ user.practicesconditions.priviledges_pay }}</td>
+                        <br><td><b>Availed the following leaves with pay?:</b> {{ user.practicesconditions.availed_leaved }}</td>
+                        <br><td><b>Number of ABSENCES incurred in a month::</b> {{ user.practicesconditions.number_absences_mo }}</td>
+                        <br><td><b>Reason of ABSENCES: HEALTH:</b> {{ user.practicesconditions.reason_absent_health }} <b>Others:</b> {{ user.practicesconditions.other_reason_absent_health }}</td>
+                        <br><td><b>Reason of ABSENCES: FAMILY (Immediate):</b> {{ user.practicesconditions.reason_absent_family }} <b>Others:</b> {{ user.practicesconditions.other_reason_absent_family }}</td>
+                        <br><td><b>Reason of ABSENCES: Inter-personal office relations:</b> {{ user.practicesconditions.reason_absent_office }} <b>Others:</b> {{ user.practicesconditions.other_reason_absent_office }}</td>
+
+                        <br><td><b>Number of TARDINESS incurred in a month::</b> {{ user.practicesconditions.number_tardines_mo }}</td>
+                        <br><td><b>Reason of TARDINESS: HEALTH:</b> {{ user.practicesconditions.reason_tardines_health }} <b>Others:</b> {{ user.practicesconditions.other_reason_tardines_health }}</td>
+                        <br><td><b>Reason of TARDINESS: FAMILY (Immediate):</b> {{ user.practicesconditions.reason_tardines_family }} <b>Others:</b> {{ user.practicesconditions.other_reason_tardines_family }}</td>
+                        <br><td><b>Reason of TARDINESS: Inter-personal office relations:</b> {{ user.practicesconditions.reason_tardines_office }} <b>Others:</b> {{ user.practicesconditions.other_reason_tardines_office }}</td>
+
+                        <br><td><b>Number of UNDERTIME incurred in a month:</b> {{ user.practicesconditions.number_undertime_mo }}</td>
+                        <br><td><b>Reason of UNDERTIME: HEALTH:</b> {{ user.practicesconditions.reason_undertime_health }} <b>Others:</b> {{ user.practicesconditions.other_reason_undertime_health }}</td>
+                        <br><td><b>Reason of UNDERTIME: FAMILY (Immediate):</b> {{ user.practicesconditions.reason_undertime_family }} <b>Others:</b> {{ user.practicesconditions.other_reason_undertime_family }}</td>
+                        <br><td><b>Reason of UNDERTIME: Inter-personal office relations:</b> {{ user.practicesconditions.reason_undertime_office }} <b>Others:</b> {{ user.practicesconditions.other_reason_undertime_office }}</td>
+
+                        <br><td><b>Does your organization provide Nursing Room/Lactation Station facilities?</b> {{ user.practicesconditions.facility_nursing }}</td>
+                        <br><td><b>Have you ever utilized the facility?</b> {{ user.practicesconditions.facility_nursing_utilized }} </td>
+                        <br><td><b> If YES, are you satisfied?:</b> {{ user.practicesconditions.facility_nursing_utilized_satisfied }} </td>
+                        <br><td><b>Yes, Kindly state your reasons:</b> {{ user.practicesconditions.facility_nursing_utilized_satisfied_yes_reason }} </td>
+                        <br><td><b>No, Kindly state your reasons:</b> {{ user.practicesconditions.facility_nursing_utilized_satisfied_no_reason }} </td>
+                        <br><td><b>Reason of not utilizing the facility:</b> {{ user.practicesconditions.facility_nursing_utilized_no_reason }} </td>
+
+                        <br><td><b>Does your organization provide Day Care/Kiddie Room/Child Minding facilities?</b> {{ user.practicesconditions.facility_daycare }}</td>
+                        <br><td><b>Have you ever utilized the facility?</b> {{ user.practicesconditions.facility_daycare_utilized }} </td>
+                        <br><td><b> If YES, are you satisfied?:</b> {{ user.practicesconditions.facility_daycare_utilized_satisfied }} </td>
+                        <br><td><b>Yes, Kindly state your reasons:</b> {{ user.practicesconditions.facility_daycare_utilized_satisfied_yes_reason }} </td>
+                        <br><td><b>No, Kindly state your reasons:</b> {{ user.practicesconditions.facility_daycare_utilized_satisfied_no_reason }} </td>
+                        <br><td><b>Reason of not utilizing the facility:</b> {{ user.practicesconditions.facility_daycare_utilized_no_reason }} </td>
+
+                        <br><td><b>Does your organization provide Prayer Room facilities?</b> {{ user.practicesconditions.facility_prayer }}</td>
+                        <br><td><b>Have you ever utilized the facility?</b> {{ user.practicesconditions.facility_prayer_utilized }} </td>
+                        <br><td><b> If YES, are you satisfied?:</b> {{ user.practicesconditions.facility_prayer_utilized_satisfied }} </td>
+                        <br><td><b>Yes, Kindly state your reasons:</b> {{ user.practicesconditions.facility_prayer_utilized_satisfied_yes_reason }} </td>
+                        <br><td><b>No, Kindly state your reasons:</b> {{ user.practicesconditions.facility_prayer_utilized_satisfied_no_reason }} </td>
+                        <br><td><b>Reason of not utilizing the facility:</b> {{ user.practicesconditions.facility_prayer_utilized_no_reason }} </td>
+
+                        <br><td><b>Does your organization provide Medical or Dental Clinic?</b> {{ user.practicesconditions.facility_medical }}</td>
+                        <br><td><b>Have you ever utilized the facility?</b> {{ user.practicesconditions.facility_medical_utilized }} </td>
+                        <br><td><b> If YES, are you satisfied?:</b> {{ user.practicesconditions.facility_medical_utilized_satisfied }} </td>
+                        <br><td><b>Yes, Kindly state your reasons:</b> {{ user.practicesconditions.facility_medical_utilized_satisfied_yes_reason }} </td>
+                        <br><td><b>No, Kindly state your reasons:</b> {{ user.practicesconditions.facility_medical_utilized_satisfied_no_reason }} </td>
+                        <br><td><b>Reason of not utilizing the facility:</b> {{ user.practicesconditions.facility_medical_utilized_no_reason }} </td>
+
+                        <br><td><b>Does your organization provide Recreation facilities (i.e. gym, wellness center, etc.)?</b> {{ user.practicesconditions.facility_recreation }}</td>
+                        <br><td><b>Have you ever utilized the facility?</b> {{ user.practicesconditions.facility_recreation_utilized }} </td>
+                        <br><td><b> If YES, are you satisfied?:</b> {{ user.practicesconditions.facility_recreation_utilized_satisfied }} </td>
+                        <br><td><b>Yes, Kindly state your reasons:</b> {{ user.practicesconditions.facility_recreation_utilized_satisfied_yes_reason }} </td>
+                        <br><td><b>No, Kindly state your reasons:</b> {{ user.practicesconditions.facility_recreation_utilized_satisfied_no_reason }} </td>
+                        <br><td><b>Reason of not utilizing the facility:</b> {{ user.practicesconditions.facility_recreation_utilized_no_reason }} </td>
+                        <br><td><b>Other available facility for employee:</b> {{ user.practicesconditions.other_facility }}</td>
+
+                        <br><td><b>Availed loans from the following?:</b> {{ user.practicesconditions.loans_availed }} </td>
+                        <br><td><b>Other loan availed:</b> {{ user.practicesconditions.other_loans_availed }}</td>
+                        <br><td><b>Reasons for availing:</b> {{ user.practicesconditions.reason_loans_availed }} </td>
+                        <br><td><b>Other reason for availing:</b> {{ user.practicesconditions.other_loans_availed_reason }}</td>
+
+                        <br><td><b>Is there a financial assistance available in your organization?:</b> {{ user.practicesconditions.financial_assitance }} </td>
+                        <br><td><b>If yes, identify:</b> {{ user.practicesconditions.yes_identified_financial_assitance }}</td>
+                        <br><td><b>Have you ever been a beneficiary of this financial assistance?</b> {{ user.practicesconditions.been_benificiary_financial_assist }} </td>
+
+                        <br><td><b>Have you ever experienced negative stress?</b> {{ user.practicesconditions.experience_negative_stress }}</td>
+                        <br><td><b>If Yes, what are the causes?</b> {{ user.practicesconditions.causes_negative_stress }}</td>
+                        <br><td><b>Others</b> {{ user.practicesconditions.other_causes_stress }}</td>
+                        <br><td><b>How do you manage stress?</b> {{ user.practicesconditions.how_manage_stress }}</td>
+                        <br><td><b>Others</b> {{ user.practicesconditions.other_how_manage_stress }}</td>
+
+                        <br><td><b>Current Sickness: 1. Lifestyle:</b> {{ user.practicesconditions.sickness_lifestyle }}</td>
+                        <br><td><b>Others:</b> {{ user.practicesconditions.other_sick_lifestyle }}</td>
+                        <br><td><b>Current Sickness: 2. Genetic/Congenital:</b> {{ user.practicesconditions.sickness_genetic }}</td>
+                        <br><td><b>Others:</b> {{ user.practicesconditions.other_sick_genetic }}</td>
+                        <br><td><b>Current Sickness: 3. Work-related:</b> {{ user.practicesconditions.sickness_workrelated }}</td>
+                        <br><td><b>Others:</b> {{ user.practicesconditions.other_sick_workrelated }}</td>
+
+                        <br><td><b>Mental Health:</b> {{ user.practicesconditions.mental_health }}</td>
+                        <br><td><b> If yes, did you ever seek professional help?</b> {{ user.practicesconditions.seek_professional }}</td>
+                        <br><td><b>Kindly state your reasons:</b> {{ user.practicesconditions.no_seek_professional }}</td>
+                        <br><td><b>f yes, did you have or are you taking medication/attending counselling?</b> {{ user.practicesconditions.yes_seek_professional }}</td>
+                        <br><td><b>Kindly state your reason:</b> {{ user.practicesconditions.no_seek_professional_nomedication }}</td>
+
+
+
+                        <br><td><b>Created date:</b> {{ user.workrelatedinfo.created }}</td>
+                    </tr>
+                </tbody>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+   <div class="row">
+
+           <div class="col-lg-5">
+
+
+    </div>
+
+
+
+   </div>
+{% endblock %}
+
